@@ -29,7 +29,12 @@ module.exports = function(grunt) {
         },
         options: {
           watchTask: true,
-          server: './client'
+          server: './client',
+          ghostMode: {
+            clicks: true,
+            forms: true,
+            scroll: true
+          }
         }
       }
     },
