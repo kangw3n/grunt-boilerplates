@@ -18,6 +18,25 @@ module.exports = function(grunt) {
         }
       }
     },
+    requirejs: {
+      compile: {
+        options: {
+          appDir: 'client/',
+          baseUrl: 'js',
+          dir: 'dist',
+          mainConfigFile: 'client/js/script.js',
+          name: 'script', // assumes a production build using almond
+          uglify2: {
+            output: {
+              beautify: false
+            },
+            warning: true,
+            mangle: true //replace var name
+          },
+          preserveLicenseComments: false
+        }
+      }
+    },
     browserSync: {
       dev: {
         bsFiles: {
@@ -42,7 +61,7 @@ module.exports = function(grunt) {
       options: {
         compress: true,
         mangle: true,
-        banner: "/*---------kangw3n 2015-----------*/\n"
+        banner: '/*---------kangw3n 2015-----------*/\n'
       },
       my_target: {
         files: {
@@ -67,7 +86,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // define default task
   grunt.registerTask('default', ['browserSync', 'watch']);
+  grunt.registerTask('require', ['requirejs']);
 };

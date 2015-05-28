@@ -1,0 +1,22 @@
+{
+  "name": "BowerPractice",
+  "version": "0.0.1",
+  "authors": [
+    "kangw3n <weitochearyeah@hotmail.com>"
+  ],
+  "description": "This is a Bower practice",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "jquery-simpleweather": "~3.0.2",
+    "moment": "~2.10.3",
+    "requirejs": "~2.1.17"
+  }
+}
