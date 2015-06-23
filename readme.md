@@ -55,28 +55,6 @@ function gruntBoiler {
 
 }
 
-function gulpBoiler {
-  args=("$@")
-
-  # clone repo
-  git clone https://github.com/kangw3n/gulp-boilerplates.git ${args[0]}
-
-  cd ${args[0]}
-
-  # remove git repo
-  # rm -rf .git
-
-  #git init
-  # git init
-
-  #npm install
-  npm install
-
-  #bower install
-  # bower install
-
-}
-
 ```
 Now we can always clone a grunt boilerplates and run all the npm install command in a single steps.
 ######Clone and install all dependency in 1 code.
