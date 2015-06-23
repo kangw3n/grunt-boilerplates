@@ -1,6 +1,6 @@
 {
   "name": "grunt-boilerplates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a sample files integrate with grunt",
   "main": "index.js",
   "scripts": {
