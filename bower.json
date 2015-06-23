@@ -17,6 +17,7 @@
     "jquery": "~2.1.4",
     "jquery-simpleweather": "~3.0.2",
     "moment": "~2.10.3",
-    "requirejs": "~2.1.17"
+    "requirejs": "~2.1.17",
+    "almond": "~0.3.1"
   }
 }

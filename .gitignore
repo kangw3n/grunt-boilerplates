@@ -20,3 +20,6 @@ $RECYCLE.BIN/
 .sass-cache
 *.css.map
 node_modules
+*.exe
+.grunt
+.DS_Store

@@ -1,20 +1,152 @@
+@import 'compass';
+@import 'custom';
+@import 'susy';
+@import 'breakpoint';
+
+
 $basefont: "Times New Roman", Arial, Verdana, Times;
-$basecolor: yellow;
+$basecolor: lighten(yellow, 30%) !default;
 $baseHeading: 15px;
-$baseContainer: 960px;
+$baseContainer: 80%;
 $secondarycolor: #1f1da1;
 
+$experimental-support-for-opera: true;
+$experimental-support-for-microsoft: true;
+$experimental-support-for-khtml: true;
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside
+);//grid global settings / map
 
 
 body {
-  background-color: $basecolor;
-
+  @include container(80%); //susy
+  @include background(linear-gradient(#eee, #fff));
   h1 {
     font-size: $baseHeading;
   }
+}
+.container {
+  width: $baseContainer;
+  color: white;
+  background-color: grey;
+  margin: 0 auto;
+  padding: 1.5em;
+  border:10px solid darken($basecolor, 95%) {
+    left: 0;
+    right: 0;
+  }
+  @include border-radius(10px);
+  @include single-box-shadow;
+  a {
+    @include unstyled-link;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: red;
+    &:link {
+      font-weight: bolder;
+    }
+    &:visited {
+      color: cyan;
+    }
+  }
+  ul {
+    color: #444;
+    @include no-bullets;
+    &.nav{
+      @include horizontal-list;
+    }
+    &.footer li {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 10px 15px;
+      background-color: $basecolor;
+      transition: 1s all ease;
+      @include border-radius(10px);
+      &:hover {
+        background-color: darken($basecolor, 30%);
+        opacity: 0.7;
+      }
+      a {
+        color: blue;
+        &:link {
+          color: blue;
+        }
+        &:visited {
+          color: currentColor;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  background-color: #fff;
+}
 
-  .container {
-    width: $baseContainer;
-    color: $secondarycolor;
+.nouse {
+  border: 1px red;
+  background-color: #fdd;
+}
+
+.serious {
+  @extend .nouse;
+  border-width: 3px;
+}
+
+section {
+  &::selection {
+    background-color: green;
+    color: blue;
+  }
+}
+
+
+aside ul {
+  padding: 0;
+  li {
+    list-style: none;
+    margin: 0;
+    a {
+      display: block;
+      padding: 10px 5%;
+      border-bottom: 1px solid #95a5a6;
+      text-decoration: none;
+    }
+
+  }
+}
+
+$small: 360px;
+$medium: 780px;
+$large: 1216px;
+
+
+@include breakpoint($large) {
+  @include layout(24);
+}
+
+
+main {
+  @include breakpoint($medium) {
+    @include span(8);
+  }
+  @include breakpoint($large) {
+      @include span(21);
+      .col1, .col2, .col3 {
+        @include span(8 of 24);
+      }
+  }
+}
+
+aside {
+  @include breakpoint($medium) {
+      @include span(4 at 9);
+  }
+  @include breakpoint($large) {
+      @include span(3 at 21);
   }
 }
